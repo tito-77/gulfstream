@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GulfSmartCampus - Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      background: #003087;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .section {
+      background: white;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #003087;
+    }
+    .button {
+      background: #0077b6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #005b96;
+    }
+    .alert {
+      background: #ffcccb;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      display: none;
+    }
+    .form-group {
+      margin: 10px 0;
+    }
+    .form-group label {
+      display: block;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <section class="section" id="signup">
+    <div class="container">
+      <div class="header">
+        <h1>GulfSmartCampus</h1>
+      </div>
+      <div class="section">
+        <h2>Create an Account</h2>
+        <p>Sign up to manage your smart campus</p>
+        <div class="alert" id="error-message"></div>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="[email protected]" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+          </div>
+          <button class="button" type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Sign in</a></p>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+      const errorMessage = document.getElementById('error-message');
+
+      // Basic validation
+      if (!name || !email || !password || !confirmPassword) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'All fields are required.';
+        return;
+      }
+      if (password !== confirmPassword) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Passwords do not match.';
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Please enter a valid email address.';
+        return;
+      }
+      if (password.length < 6) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Password must be at least 6 characters long.';
+        return;
+      }
+
+      // Check if email already exists
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      if (users.some(user => user.email === email)) {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Email already registered.';
+        return;
+      }
+
+      // Store user data in localStorage
+      users.push({ name, email, password });
+      localStorage.setItem('users', JSON.stringify(users));
+
+      // Success message and redirect
+      errorMessage.style.display = 'block';
+      errorMessage.style.background = '#ccffcc';
+      errorMessage.textContent = 'Sign up successful! Redirecting to login...';
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

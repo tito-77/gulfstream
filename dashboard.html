@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GulfSmartCampus - Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      background: #003087;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      background: #005b96;
+      padding: 10px 0;
+    }
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
+    .nav a:hover {
+      background: #0077b6;
+    }
+    .section {
+      background: white;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #003087;
+    }
+    .card {
+      display: inline-block;
+      width: 30%;
+      margin: 1%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+    }
+    .alert {
+      background: #ffcccb;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Dashboard</h1>
+      <p id="welcome-message">Welcome back</p>
+    </div>
+    <div class="nav">
+      <a href="dashboard.html">Home</a>
+      <a href="facilities.html">Device Management & Maintenance</a>
+    </div>
+    <div class="section">
+      <h2>CAMPUS STATUS</h2>
+      <div class="card">
+        <h3>Active Systems</h3>
+        <p>48/50</p>
+        <p>96%</p>
+      </div>
+      <div class="card">
+        <h3>Classroom Utilization</h3>
+        <p>32/40</p>
+        <p>80%</p>
+      </div>
+    </div>
+    <div class="section">
+      <h2>ENERGY USAGE</h2>
+      <p><a href="facilities.html">View Details</a></p>
+      <div class="card">
+        <h3>Current Consumption</h3>
+        <p>5.8 kWh</p>
+        <p>-10% vs. avg</p>
+      </div>
+      <div class="card">
+        <h3>Weekly Trend</h3>
+        <p>Mon: 6.2 kWh, Tue: 5.9 kWh, Wed: 5.7 kWh, Thu: 5.8 kWh, Fri: 5.6 kWh</p>
+      </div>
+    </div>
+    <div class="section">
+      <h2>RECENT ALERTS</h2>
+      <p><a href="facilities.html#security">View All</a></p>
+      <div class="alert">
+        <h3>Maintenance Required</h3>
+        <p>HVAC unit in Lecture Hall 1 needs filter replacement</p>
+        <p>1 hour ago</p>
+      </div>
+      <div class="alert">
+        <h3>Security Alert</h3>
+        <p>Unusual access detected at Library entrance</p>
+        <p>Yesterday, 10:15 PM</p>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Display user name in welcome message
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    if (currentUser.name) {
+      document.getElementById('welcome-message').textContent = `Welcome back, ${currentUser.name}`;
+    }
+  </script>
+</body>
+</html>

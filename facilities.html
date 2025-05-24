@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GulfSmartCampus - Device Management & Maintenance</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      background: #003087;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      background: #005b96;
+      padding: 10px 0;
+    }
+    .nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+    }
+    .nav a:hover {
+      background: #0077b6;
+    }
+    .section {
+      background: white;
+      margin: 20px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      color: #003087;
+    }
+    .card {
+      display: inline-block;
+      width: 30%;
+      margin: 1%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+    }
+    .button {
+      background: #0077b6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #005b96;
+    }
+    .alert {
+      background: #ffcccb;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Device Management & Maintenance</h1>
+      <p>Manage facilities, energy, security, and settings</p>
+    </div>
+    <div class="nav">
+      <a href="dashboard.html">Home</a>
+      <a href="facilities.html">Device Management & Maintenance</a>
+    </div>
+
+    <!-- Facilities Subsection -->
+    <div class="section" id="facilities">
+      <h2>Facility Management</h2>
+      <button class="button" id="add-device">Add New Device</button>
+      <h3>FACILITY CATEGORIES</h3>
+      
+      <h3>MANAGED FACILITIES</h3>
+      <div id="device-list">
+        <div class="card">
+          <h3>Classroom A1</h3>
+          <p>Online • Main Building</p>
+          <p>Last updated: 5 mins ago</p>
+        </div>
+        <div class="card">
+          <h3>Lab Sensor B2</h3>
+          <p>Online • Science Wing</p>
+          <p>Last updated: Just now</p>
+        </div>
+        <div class="card">
+          <h3>Security Camera C3</h3>
+          <p>Offline • Parking Lot</p>
+          <p>Last updated: 1 hour ago</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Energy Subsection -->
+    <div class="section" id="energy">
+      <h2>Energy Monitoring</h2>
+      <p>Track and optimize campus energy usage</p>
+      <h3>TIMEFRAME</h3>
+      
+      <h3>TODAY'S CONSUMPTION</h3>
+      <p>12.5 kWh</p>
+      <p>-5% vs. avg</p>
+      <p>Target: 15 kWh</p>
+      <h3>ENERGY DISTRIBUTION</h3>
+      <div class="card">
+        <h3>Classrooms</h3>
+        <p>6.5 kWh (52%)</p>
+      </div>
+      <div class="card">
+        <h3>HVAC</h3>
+        <p>3.8 kWh (30%)</p>
+      </div>
+      <div class="card">
+        <h3>Lighting</h3>
+        <p>2.2 kWh (18%)</p>
+      </div>
+      <h3>OPTIMIZATION SUGGESTIONS</h3>
+      <div class="alert">
+        <h3>Adjust Lighting Schedule</h3>
+        <p>Optimize classroom lighting to save 10% energy</p>
+      </div>
+    </div>
+
+    <!-- Security Subsection -->
+    <div class="section" id="security">
+      <h2>Security Alerts</h2>
+      <p>Monitor and manage campus security</p>
+      <h3>ALERT STATUS</h3>
+      
+      <h3>CRITICAL ALERTS</h3>
+      <div class="alert">
+        <h3>Unauthorized Access Attempt</h3>
+        <p>15 min ago</p>
+        <p>Failed login attempts from IP 192.168.1.100</p>
+      </div>
+      <h3>WARNINGS</h3>
+      <div class="alert">
+        <h3>Unusual Activity</h3>
+        <p>2 hours ago</p>
+        <p>High data transfer from Lab PC to external server</p>
+      </div>
+    </div>
+
+    <!-- Maintenance Subsection -->
+    <div class="section" id="maintenance">
+      <h2>Predictive Maintenance</h2>
+      <p>Upcoming tasks and system health</p>
+      <h3>SYSTEM HEALTH</h3>
+      <div class="card">
+        <h3>Overall Health Score</h3>
+        <p>Good</p>
+        <p>82%</p>
+      </div>
+      <div class="card">
+        <h3>Sensors</h3>
+        <p>95%</p>
+      </div>
+      <div class="card">
+        <h3>Network</h3>
+        <p>88%</p>
+      </div>
+      <div class="card">
+        <h3>Power</h3>
+        <p>76%</p>
+      </div>
+      <h3>MAINTENANCE TIMELINE</h3>
+      <div class="alert">
+        <h3>Battery Replacement</h3>
+        <p>High Risk</p>
+        <p>Security Camera (Parking Lot) battery level critical at 8%</p>
+        <p>Due in 2 days</p>
+      </div>
+      <div class="alert">
+        <h3>Sensor Calibration</h3>
+        <p>Medium Risk</p>
+        <p>Temperature Sensor (Science Wing) showing 5% deviation</p>
+        <p>Due in 5 days</p>
+      </div>
+      <h3>MAINTENANCE STATS</h3>
+      <div class="card">
+        <h3>Pending Tasks</h3>
+        <p>7</p>
+        <p>↓ 2 from last month</p>
+      </div>
+      <div class="card">
+        <h3>Avg. Resolution Time</h3>
+        <p>1.8 days</p>
+        <p>↓ 0.3 days improvement</p>
+      </div>
+    </div>
+
+    <!-- Settings Subsection -->
+    <div class="section" id="settings">
+      <h2>Settings</h2>
+      <h3>ACCOUNT</h3>
+      <p id="user-name">Admin</p>
+      <p id="user-email">[email protected]</p>
+      <button class="button" id="logout">Log Out</button>
+      <p>GulfSmartCampus v1.0.0</p>
+      <p>© 2025 Gulf College Technologies</p>
+    </div>
+  </div>
+  <script>
+    // Add New Device
+    document.getElementById('add-device').addEventListener('click', function() {
+      const name = prompt('Enter device name:');
+      const location = prompt('Enter device location:');
+      const status = prompt('Enter device status (Online/Offline):');
+      
+      if (name && location && status) {
+        const devices = JSON.parse(localStorage.getItem('devices') || '[]');
+        devices.push({ name, location, status, lastUpdated: new Date().toLocaleString() });
+        localStorage.setItem('devices', JSON.stringify(devices));
+        
+        const deviceList = document.getElementById('device-list');
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${name}</h3>
+          <p>${status} • ${location}</p>
+          <p>Last updated: Just now</p>
+        `;
+        deviceList.appendChild(card);
+        
+        alert('Device added successfully!');
+      } else {
+        alert('All fields are required to add a device.');
+      }
+    });
+
+    // Load existing devices from localStorage
+    const devices = JSON.parse(localStorage.getItem('devices') || '[]');
+    const deviceList = document.getElementById('device-list');
+    devices.forEach(device => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h3>${device.name}</h3>
+        <p>${device.status} • ${device.location}</p>
+        <p>Last updated: ${device.lastUpdated}</p>
+      `;
+      deviceList.appendChild(card);
+    });
+
+    // Log Out
+    document.getElementById('logout').addEventListener('click', function() {
+      localStorage.removeItem('currentUser');
+      alert('Logged out successfully!');
+      window.location.href = 'login.html';
+    });
+
+    // Display user info
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    if (currentUser.name) {
+      document.getElementById('user-name').textContent = currentUser.name;
+      document.getElementById('user-email').textContent = currentUser.email;
+    }
+  </script>
+</body>
+</html>
